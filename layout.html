@@ -1,0 +1,33 @@
+<template>
+    <div id="app">
+        {{range $item, $inf :=  .InputField}}
+            <label class="tadaluuu" for="input{{$item}}">{{$inf.Label}}</label>
+            {{if eq $inf.TypeInput "select"}}
+                <select name="properties[{{$inf.Label}}]">
+                    {{range $i, $v := $inf.Colors}}
+                        <option value="{{$v.Color}}">{{$v.Color}}</option>
+                    {{end}}
+                </select>
+            {{else}}
+                {{if eq $inf.TypeInput "color"}}
+                    {{range $i, $v := $inf.Colors}}
+                        <input type="color" value="{{$v.Color}}" name="properties[{{$v.Color}}]" id="your-name">
+                    {{end}}
+                {{else}}
+                    <input type="{{$inf.TypeInput}}" name="properties[{{$inf.Label}}]" id="input{{$item}}">
+                {{end}}
+            {{end}}
+        {{end}}
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'App',
+    }
+</script>
+<style>
+    .tadaluuu {
+        color: blue;
+    }
+</style>
