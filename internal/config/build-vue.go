@@ -8,7 +8,7 @@ import (
 )
 
 func BuildVue() {
-	dir := filepath.Dir("/Users/nguyentaidat/Documents/GOD/Project/builder/vue-test/")
+	dir := filepath.Dir("/Users/nguyentaidat/Desktop/builder-product-personalizer/vue-test/")
 	fmt.Println(dir)
 	goExecutable, _ := exec.LookPath("yarn")
 	cmdBuildVuePrj := &exec.Cmd{
